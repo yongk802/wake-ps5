@@ -13,6 +13,9 @@ from . import WakePS5RuntimeData
 from .const import DOMAIN
 from .entity import WakePS5Entity
 
+WAKE_RETRIES = 3
+WAKE_RETRY_DELAY = 1.0
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -36,7 +39,9 @@ class WakePS5Button(WakePS5Entity, ButtonEntity):
         return True
 
     async def async_press(self) -> None:
-        await self._client.async_wake()
+        await self._client.async_wake_with_retries(
+            retries=WAKE_RETRIES, delay=WAKE_RETRY_DELAY
+        )
         self.hass.async_create_task(self._async_delayed_refresh())
 
     async def _async_delayed_refresh(self) -> None:

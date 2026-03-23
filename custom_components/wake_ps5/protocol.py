@@ -208,6 +208,21 @@ class PS5RemoteClient:
             wake_console, self.host, self.regist_key
         )
 
+    async def async_wake_with_retries(
+        self, retries: int = 3, delay: float = 1.0
+    ) -> None:
+        """Send multiple wake packets, retrying if the PS5 does not respond."""
+
+        def _retry_wake() -> None:
+            for i in range(retries):
+                wake_console(self.host, self.regist_key)
+                if i < retries - 1:
+                    import time
+
+                    time.sleep(delay)
+
+        await self._hass.async_add_executor_job(_retry_wake)
+
     async def async_probe(self) -> PS5Status | None:
         return await self.async_get_status()
 
