@@ -1,0 +1,8 @@
+{
+  "name": "Wake PS5",
+  "domains": [
+    "wake_ps5"
+  ],
+  "homeassistant": "2024.8.0",
+  "render_readme": true
+}

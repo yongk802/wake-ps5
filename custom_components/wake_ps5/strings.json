@@ -1,0 +1,24 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to your PS5",
+        "description": "Enter your PS5 host and Remote Play registration key.",
+        "data": {
+          "host": "Host or IP",
+          "regist_key": "Registration key",
+          "name": "Name",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to reach the PS5",
+      "invalid_host": "The host responded, but it does not look like a PS5",
+      "invalid_regist_key": "The registration key is invalid"
+    },
+    "abort": {
+      "already_configured": "This PS5 is already configured"
+    }
+  }
+}

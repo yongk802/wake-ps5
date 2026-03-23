@@ -1,0 +1,12 @@
+{
+  "domain": "wake_ps5",
+  "name": "Wake PS5",
+  "version": "0.1.0",
+  "documentation": "https://github.com/yongkim/wake-ps5",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "config_flow": true,
+  "codeowners": [
+    "@yongkim"
+  ]
+}
